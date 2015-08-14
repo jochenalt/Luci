@@ -1,0 +1,276 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 12.07.2015 15:17:53
+
+BeginCmp
+TimeStamp = /54F39509;
+Reference = AVR1;
+ValeurCmp = AVR-ISP-6;
+IdModule  = AVR-ISP-6;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FB8EF9;
+Reference = C1;
+ValeurCmp = 100nF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54F34585;
+Reference = C2;
+ValeurCmp = 100nF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5505A074;
+Reference = C3;
+ValeurCmp = 100uF;
+IdModule  = C1V5;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FBB338;
+Reference = C4;
+ValeurCmp = 470uF;
+IdModule  = C1V5;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FC5D0B;
+Reference = C5;
+ValeurCmp = 100nF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /559C460D;
+Reference = C6;
+ValeurCmp = 1uF;
+IdModule  = CP4;
+EndCmp
+
+BeginCmp
+TimeStamp = /55A14DE4;
+Reference = C7;
+ValeurCmp = 1uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /55A268AD;
+Reference = C8;
+ValeurCmp = 100nF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FC5BB8;
+Reference = D1;
+ValeurCmp = DIODE;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /5501A8EA;
+Reference = D3;
+ValeurCmp = DIODE;
+IdModule  = D4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54F3428C;
+Reference = IC1;
+ValeurCmp = ATMEGA328P-P;
+IdModule  = DIP-28__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FB7EAB;
+Reference = K1;
+ValeurCmp = Serial Interface Connector;
+IdModule  = PIN_ARRAY_3X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5599534B;
+Reference = K3;
+ValeurCmp = Power IN;
+IdModule  = PIN_ARRAY_3X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5599885D;
+Reference = P1;
+ValeurCmp = Servo PWM;
+IdModule  = PIN_ARRAY_5x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /55991A14;
+Reference = P2;
+ValeurCmp = Power Out ODROID;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5598FF5E;
+Reference = P3;
+ValeurCmp = CONN_1;
+IdModule  = PIN_ARRAY_1;
+EndCmp
+
+BeginCmp
+TimeStamp = /559986DF;
+Reference = P4;
+ValeurCmp = Servo Block;
+IdModule  = PIN_ARRAY_5x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /5598FF6D;
+Reference = P5;
+ValeurCmp = CONN_1;
+IdModule  = PIN_ARRAY_1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FED03C;
+Reference = P6;
+ValeurCmp = LED_CONN;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5598FF8B;
+Reference = P7;
+ValeurCmp = CONN_1;
+IdModule  = PIN_ARRAY_1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5598FF9A;
+Reference = P8;
+ValeurCmp = CONN_1;
+IdModule  = PIN_ARRAY_1;
+EndCmp
+
+BeginCmp
+TimeStamp = /55967CD8;
+Reference = P9;
+ValeurCmp = LevelShifter;
+IdModule  = DIP-6__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /559964EE;
+Reference = P10;
+ValeurCmp = CONN_4X2;
+IdModule  = pin_array_4x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FC7C90;
+Reference = Q2;
+ValeurCmp = BC 160 PNP;
+IdModule  = TO39EBC;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FB8466;
+Reference = R1;
+ValeurCmp = 470;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FB86FD;
+Reference = R2;
+ValeurCmp = 470;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FB870C;
+Reference = R3;
+ValeurCmp = 470;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FB871B;
+Reference = R4;
+ValeurCmp = 470;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54F34CA1;
+Reference = R6;
+ValeurCmp = 10K;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FC5268;
+Reference = R7;
+ValeurCmp = 470;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /5598610B;
+Reference = R10;
+ValeurCmp = 560;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /559905EC;
+Reference = R11;
+ValeurCmp = 860;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FCCDDC;
+Reference = R13;
+ValeurCmp = 220;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54FC925F;
+Reference = ServoRelay1;
+ValeurCmp = ServoRelay;
+IdModule  = Slimline-Relay-HF49FD;
+EndCmp
+
+BeginCmp
+TimeStamp = /54F34B97;
+Reference = SW1;
+ValeurCmp = uC reset;
+IdModule  = SW_PUSH_SMALL;
+EndCmp
+
+BeginCmp
+TimeStamp = /559664E8;
+Reference = U1;
+ValeurCmp = LM350T;
+IdModule  = TO220_VOLTAGE_REGUL_ADJ;
+EndCmp
+
+BeginCmp
+TimeStamp = /55A04FAF;
+Reference = USB1;
+ValeurCmp = LED_CONN;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54F34885;
+Reference = X1;
+ValeurCmp = CRYSTAL_OSSCI;
+IdModule  = QUARTZ_OSCILLATOR_DIL14;
+EndCmp
+
+EndListe
