@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>5.1</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8</ToolchainName>
+    <ProjectGuid>{447b7da3-b195-46d9-8a68-fcb3520ae6a5}</ProjectGuid>
+    <avrdevice>ATmega644P</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>StaticLibrary</OutputType>
+    <Language>CPP</Language>
+    <OutputFileName>lib$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.a</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AvrGccProjectExtensions>
+    </AvrGccProjectExtensions>
+    <AssemblyName>Arduino</AssemblyName>
+    <Name>Arduino</Name>
+    <RootNamespace>Arduino</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <avrtool />
+    <AsfVersion>2.11.1</AsfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.optimization.level>Optimize more (-O2)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>m</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.linker.optimization.GarbageCollectUnusedSections>True</avrgcccpp.linker.optimization.GarbageCollectUnusedSections>
+      </AvrGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>ARDUINO=101</Value>
+      <Value>F_CPU=24000000UL</Value>
+    </ListValues>
+  </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../core</Value>
+      <Value>../libraries</Value>
+      <Value>../variant</Value>
+      <Value>../libraries/Wire/utility</Value>
+    </ListValues>
+  </avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</avrgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>ARDUINO=101</Value>
+      <Value>F_CPU=24000000UL</Value>
+    </ListValues>
+  </avrgcccpp.compiler.symbols.DefSymbols>
+  <avrgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../variant</Value>
+      <Value>../core</Value>
+      <Value>../libraries</Value>
+      <Value>../libraries/Wire/utility</Value>
+    </ListValues>
+  </avrgcccpp.compiler.directories.IncludePaths>
+  <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
+  <avrgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</avrgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+  <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+  <avrgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>m</Value>
+    </ListValues>
+  </avrgcccpp.linker.libraries.Libraries>
+  <avrgcccpp.linker.optimization.GarbageCollectUnusedSections>True</avrgcccpp.linker.optimization.GarbageCollectUnusedSections>
+  <avrgcccpp.assembler.debugging.DebugLevel>Default (-g2)</avrgcccpp.assembler.debugging.DebugLevel>
+</AvrGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="core" />
+    <Folder Include="libraries" />
+    <Folder Include="variant" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="core\Arduino.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\binary.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\CDC.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Client.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\HardwareSerial.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\HardwareSerial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\HID.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\IPAddress.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\IPAddress.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\main.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\new.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\new.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Platform.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Print.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Print.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Printable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Server.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Stream.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Stream.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Tone.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\Udp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\USBAPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\USBCore.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\USBCore.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\USBDesc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\WCharacter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\WInterrupts.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\wiring.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\wiring_analog.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\wiring_digital.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\wiring_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\wiring_pulse.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\wiring_shift.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\WMath.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\WString.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="core\WString.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="libraries\EEPROM\EEPROM.cpp">
+      <SubType>compile</SubType>
+      <Link>libraries\EEPROM.cpp</Link>
+    </Compile>
+    <Compile Include="libraries\EEPROM\EEPROM.h">
+      <SubType>compile</SubType>
+      <Link>libraries\EEPROM.h</Link>
+    </Compile>
+    <Compile Include="libraries\SPI\SPI.cpp">
+      <SubType>compile</SubType>
+      <Link>libraries\SPI.cpp</Link>
+    </Compile>
+    <Compile Include="libraries\SPI\SPI.h">
+      <SubType>compile</SubType>
+      <Link>libraries\SPI.h</Link>
+    </Compile>
+    <Compile Include="libraries\Wire\utility\twi.c">
+      <SubType>compile</SubType>
+      <Link>libraries\twi.c</Link>
+    </Compile>
+    <Compile Include="libraries\Wire\utility\twi.h">
+      <SubType>compile</SubType>
+      <Link>libraries\twi.h</Link>
+    </Compile>
+    <Compile Include="libraries\Wire\Wire.cpp">
+      <SubType>compile</SubType>
+      <Link>libraries\Wire.cpp</Link>
+    </Compile>
+    <Compile Include="libraries\Wire\Wire.h">
+      <SubType>compile</SubType>
+      <Link>libraries\Wire.h</Link>
+    </Compile>
+    <Compile Include="variant\pins_arduino.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="variant\pins_arduino_atmega328.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="variant\pins_arduino_atmega644.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="variant\pins_arduino_atmega8_168.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
