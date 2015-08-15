@@ -7,3 +7,6 @@ ODROID-U3/PCA9685/
 ODROID-U3/Win32DiskImagerV11/
 ODROID-U3/ubuntu-14.04.2lts-lubuntu-odroid-u-20150224.img
 ~*.xlsx
+*.kicad_pcb-bak
+sources/LuciSound/.settings/
+sources/LuciSound/Debug/
