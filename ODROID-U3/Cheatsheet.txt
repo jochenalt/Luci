@@ -1,0 +1,176 @@
+#root partition vergößern
+/usr/local/bin/root-utility.sh
+
+#in /etc/modules
+echo "# I2C protocol " >> /etc/modules
+echo "i2c-dev" >>  /etc/modules
+echo "" >>  /etc/modules
+echo "# I2C bit banging" >> /etc/modules
+echo "i2c_gpio_custom bus0=4,200,199" >> /etc/modules
+echo "" >>  /etc/modules
+echo "# USB Gadgets for having Ethernet over USB" >> /etc/modules
+echo "g_ether host_addr=00:dc:c8:f7:75:05 dev_addr=00:dd:dc:eb:6d:f1" >> /etc/modules
+echo "" >>  /etc/modules
+
+# in /etc/network/interfaces
+echo "auto lo" >> /etc/network/interfaces
+echo "auto usb0" >> /etc/network/interfaces
+echo "iface usb0 inet static" >> /etc/network/interfaces
+echo "    address 192.168.1.66" >> /etc/network/interfaces
+echo "    netmask 255.255.255.0" >> /etc/network/interfaces
+echo "    gateway 192.168.1.56" >> /etc/network/interfaces
+
+# in /etc/resolvconf/resolv.conf.d/
+echo "nameserver 8.8.8.8" >> /etc/resolvconf/resolv.conf.d/tail
+
+# in .bashrc
+echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib" >> ~odroid/.bashrc: 
+echo "PATH=$PATH:/home/odroid/bin >> ~odroid/.bashrc: 
+
+echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib" >> ~root/.bashrc: 
+
+#in /usr/local/bin/howgo
+#!/bin/bash
+
+# booten
+# in Windows Netzwerkeinstellungen  Internet freigeben. Dann wird LAN eine statische IP zugewiesen.
+# booten.
+# in Windows Netzwerkeinstellungen LAN 192.168.1.56/255.255.255.0 als statische IP für einstellen.
+
+#### Time ###
+ntpdate -b -s -u pool.ntp.org
+#or as an entry in /etc/rc.local
+#Timezone einstellen
+dpkg-reconfigure tzdata
+crontab -e
+10 * * * * ntpdate -b -s -u pool.ntp.org >/dev/null 2>&1
+
+### CPU frequency ###
+sudo apt-get install cpufrequtils;cpufreq-set -r -g ondemand;cpufreq-info
+
+echo $((`cpufreq-info -f` /1000))'Mhz' $((`cat /sys/devices/virtual/thermal/thermal_zone0/temp` /1000))'°'
+
+# opencv 3.0
+apt-get install build-essential;apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+cd ~
+wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.0.0/opencv-3.0.0.zip
+unzip opencv-3.0.0.zip;rm opencv-3.0.0.zip;cd opencv-3.0.0;mkdir build;cd build
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DWITH_OPENGL=ON -DWITH_V4L=ON -DWITH_TBB=OFF -DENABLE_VFPV3=ON -DENABLE_NEON=ON ..
+make -j 4;make install
+
+##### boost installieren ###
+apt-get install libboost-filesystem-dev
+
+#Webcam & opencv nach http://derekmolloy.ie/beaglebone-images-video-and-opencv/
+//v4l2-ctl installieren mit 
+apt-get install v4l-utils
+// check if webcam wird erkannt
+v4l2-ctl --list-devices
+// check formate
+v4l2-ctl --list-formats-ext
+// non-root benutzern rechte geben die webcam zu benutzen
+usermod -a -G video odroid
+gpasswd -a odroid video
+chmod 666 /dev/video0
+
+#Install mpeg_streamer
+apt-get install subversion imagemagick    
+svn co https://svn.code.sf.net/p/mjpg-streamer/code mjpg-streamer
+cd mjpg-streamer/mjpg-streamer
+make USE_LIBV4L2=true clean all
+make DESTDIR=/usr/local install
+mkdir ~odroid/camera
+#mpeg Streamer starten (liest LuciController/mjpg/out.mjpg) als root
+// mjpg_streamer -i "/usr/local/lib/input_file.so -f /home/odroid/camera -r" -o "/usr/local/lib/output_http.so -w /usr/local/www -p 8001"
+// mjpg_streamer -i "/usr/local/lib/input_file.so -f /home/bbb/camera -r" -o "/usr/local/lib/output_http.so -w /usr/local/www -p 8001"
+// Website verfügbar unter http://192.168.1.66:8001/javascript_simple.html
+
+# i2c
+apt-get install i2c-tools
+# I2C device benutzbar machen für non root
+sudo chmod 666 /dev/i2c-4;adduser odroid i2c
+
+### EXCLIPSE ###
+g++ installieren:
+apt-get install g++
+apt-get install gdbserver // für remote debuggen
+
+Eclipse gemäß http://jkuhlm.bplaced.net/hellobone/ aufsetzen
+In Eclipse Remote Application mit "Skip Download to target System" ankreuzen. Dafür eigene Run Configuration bauen die den Download erledigt.
+
+# END DONT UPGRADE/UPDATE#
+
+# dont upgrade/update !!!!
+
+#### Packages###
+// Pakete listen
+>dpkg-query -Wf '${Installed-size}\t${Package}\n' | column -t | sort -n
+// Pakete finden
+>apt-get install aptitude
+>aptitude search boost
+
+
+
+
+
+##### Ethernet via USB ####
+
+http://blackfin.uclinux.org/doku.php?id=linux-kernel:usb-gadget:ethernet
+>modprobe g_ether host_addr=00:dc:c8:f7:75:05 dev_addr=00:dd:dc:eb:6d:f1
+oder in 
+/etc/modules g_ether host_addr=00:dc:c8:f7:75:05 dev_addr=00:dd:dc:eb:6d:f1 eintragen
+>ifconfig usb0 192.168.1.66 up
+>route add default gw 192.168.1.56
+check that PC host is available
+>ping 192.168.1.56
+in Windows Netzwerkeinstellungen 192.168.1.56/255.255.255.0 als statische IP einstellen
+in /etc/resolv.conf
+nameserver 8.8.8.8 eintragen
+oder in /etc/network/interfaces eintragen:
+auto lo
+auto usb0
+iface usb0 inet static
+    address 192.168.1.66
+    netmask 255.255.255.0
+    gateway 192.168.1.56
+
+
+
+##### boost installieren ###
+>apt-get install libboost-filesystem-dev
+
+
+# USB cam reset:
+http://askubuntu.com/questions/645/how-do-you-reset-a-usb-device-from-the-command-line
+
+I2C Tools
+-------------
+
+Wiki http://odroid.com/dokuwiki/doku.php?id=en:u3_ioport_i2c
+
+>apt-get install i2c-tools
+>modprobe i2c_gpio_custom bus0=4,200,199
+>modprobe i2c-dev
+
+I2C device benutzbar machen für non root
+>sudo chmod 666 /dev/i2c-4
+>adduser odroid i2c
+
+oder in /etc/modules eintragen:
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+# Parameters can be specified after the module name.
+
+# I2C protocol
+i2c-dev
+
+# I2C bit banging
+i2c_gpio_custom bus0=4,200,199
+
+# USB Gadgets for having Ethernet over USB
+g_ether host_addr=00:dc:c8:f7:75:05 dev_addr=00:dd:dc:eb:6d:f1
+
+
+
+
