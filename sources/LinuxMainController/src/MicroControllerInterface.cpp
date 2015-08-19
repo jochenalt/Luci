@@ -13,7 +13,6 @@
 
 
 #define DIY_CONTROLLER_BOARD
-// #define PCA9685_BOARD
 
 #ifdef DIY_CONTROLLER_BOARD
 #include "I2CInterface.h"

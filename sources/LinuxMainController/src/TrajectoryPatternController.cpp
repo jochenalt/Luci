@@ -208,12 +208,12 @@ void TrajectoryPatternController::callMenu() {
 #ifdef INCLUDE_LUCI_SIGHT
 			case '+': {
 				Sight::getInstance().setCamLatency(Sight::getInstance().getCamLatency() + 5);
-				cout << "CAM Latency is now " <<  Sight::getInstance().getCamLatency() << endl;;
+				cout << "CAM Latency compensation is now " <<  Sight::getInstance().getCamLatency() << endl;;
 				break;
 			}
 			case '-': {
 				Sight::getInstance().setCamLatency(Sight::getInstance().getCamLatency() - 5);
-				cout << "CAM Latency is now " <<  Sight::getInstance().getCamLatency() << endl;;
+				cout << "CAM Latency compensation is now " <<  Sight::getInstance().getCamLatency() << endl;;
 				break;
 			}
 #endif

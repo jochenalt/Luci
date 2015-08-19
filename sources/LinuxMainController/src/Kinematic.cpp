@@ -81,7 +81,6 @@ void  Kinematics::getHistoricalPosition(Position& pos, unsigned long t) {
 			idxDelta--;
 		}
 		pos = getHistory(idxDelta).pos;
-		// cout << "getHistoricalPosition(" << t << ")=" << pos << endl;
 	}
 }
 
@@ -115,18 +114,10 @@ void Kinematics::lookAt(const Point& eyePosition, const Point& lookAt, Rotation&
 		headOrientation.x = 0;
 		headOrientation.z = degrees(atan2Fast(dy,dx));
 		headOrientation.y = -degrees(atan2Fast(dz,sqrt(dx*dx+dy*dy)));
-		// headOrientation.z = degrees(atan2Fast(dy,sqrt(dx*dx+dz*dz)));
-		// headOrientation.y = -degrees(atan2Fast(dz,dx));
-
-		// cout << "lookat eye" << eyePosition << "la=" << lookAt << "(" << dx << "," << dy << "," << dz << ") s=" << sqrt(dx*dx+dz*dz) << " ho" << headOrientation << endl;
 	} else {
 		headOrientation.x = 0;
 		headOrientation.z = degrees(atan2Fast(dy,-dx));
 		headOrientation.y = -degrees(atan2Fast(dz,sqrt(dx*dx+dy*dy)));
-		// headOrientation.z = degrees(atan2Fast(dy,sqrt(dx*dx+dz*dz)));
-		// headOrientation.y = -degrees(atan2Fast(dz,-dx));
-
-		// cout << "lookat eye" << eyePosition << "la=" << lookAt << "(" << dx << "," << dy << "," << dz << ") s=" << sqrt(dx*dx+dz*dz) << " ho" << headOrientation << endl;
 	}
 }
 
@@ -217,11 +208,6 @@ void Kinematics::limitPosition(Position &pos) {
 }
 
 Position Kinematics::getSpeed(const TimedPosition& pos1, const TimedPosition& pos2) {
-	static int i = 0;
-	i++;
-	if (i == 3) {
-		cout << "x";
-	}
 	float timeDiff = timediff(pos2.atTime,pos1.atTime);
 	Position speedVector = (pos2.pos - pos1.pos) / timeDiff;
 
@@ -426,12 +412,6 @@ bool Kinematics::moveServosTo(const Position& eye) {
 	}
 
 	servoController.setServoData();
-	/*
-	if (debugKinematic) {
-		servoController.print();
-		cout << "t=" << millis()-now << "ms" << endl;
-	}
-	*/
 	return validated;
 }
 

@@ -66,14 +66,11 @@ void BezierCurve::set(TimedPosition& pPrev, TimedPosition& pA, TimedPosition& pB
 	Position supportPointB(pB.pos);
 	if (!pNext.isNull()) {
 		supportPointB =  getSupportPoint(pA,pB,pNext);
-		// cout << "BezierCurve::set.getSupportPointB(" << pA << "," << pB <<"," << pNext << ")=" << supportPointB << endl;
-
 	}
 
 	Position supportPointA(pA.pos);
 	if (!pNext.isNull()) {
 		supportPointA =  getSupportPoint(pB,pA,pPrev);
-		// cout << "BezierCurve::set.getSupportPointA(" << pB << "," << pA <<"," << pPrev << ")=" << supportPointA << endl;
 	}
 	a = pA;
 	b = pB;

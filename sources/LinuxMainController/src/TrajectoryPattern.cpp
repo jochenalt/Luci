@@ -603,7 +603,6 @@ TimedPosition NaughtyLampPattern::fetchNextPosition(const TimedPosition& lastPos
 
 		nextTensor.pos.point += Point(100,-80,0);
 		nextTensor.atTime  += duration;
-		// cout << "leftright=" << leftRight << " updon=" << upDown << endl;
 
 		lookAt = Point(nextTensor.pos.point.x - upDown*200,
 							 0,

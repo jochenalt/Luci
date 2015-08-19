@@ -11,3 +11,4 @@ ODROID-U3/ubuntu-14.04.2lts-lubuntu-odroid-u-20150224.img
 *.kicad_pcb-bak
 sources/LuciSound/.settings/
 sources/LuciSound/Debug/
+documentation/html/
