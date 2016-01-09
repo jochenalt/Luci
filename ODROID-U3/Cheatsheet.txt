@@ -33,9 +33,11 @@ echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib" >> ~root/.bashrc:
 #!/bin/bash
 
 # booten
-# in Windows Netzwerkeinstellungen  Internet freigeben. Dann wird LAN eine statische IP zugewiesen.
-# booten.
-# in Windows Netzwerkeinstellungen LAN 192.168.1.56/255.255.255.0 als statische IP für einstellen.
+# Plug in odroid. Ensure that RNDIS device is installed and comes up in device manager.If it does not show up, install "ACER RNDIS Device" from http://catalog.update.microsoft.com/v7/site/ScopedViewRedirect.aspx?updateid=37e35bd4-d788-4b83-9416-f78e439f90a2
+# In Windows network settings,  share network connection. Now the odroid connection gets an IP address. Set a static ip address (no DHCP) to 192.168.1.56/255.255.255.0.
+# Now unshare network connection (a putty terminal  gets a connection error). Share it again, and set the IP Address again to the static address again (sounds strange, but you 
+# really need to do that twice to have a running interet connection in the odroid via rndis).
+# Now start putty terminal, establish a ssh connection to 192.168.1.66, Port 22, with auto-login "odroid" (if you like), password "odroid".
 
 #### Time ###
 ntpdate -b -s -u pool.ntp.org
