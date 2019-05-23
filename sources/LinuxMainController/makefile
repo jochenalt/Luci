@@ -7,7 +7,7 @@ LIB=./lib
 OPENCV_LIB=`pkg-config opencv --libs`
 LDLIBS=$(OPENCV_LIB)  -lboost_thread -lboost_atomic -lboost_system -lboost_date_time -lboost_filesystem
 OBJS=$(LIB)/Sight.o $(LIB)/main.o $(LIB)/Util.o $(LIB)/Configuration.o $(LIB)/Kinematic.o $(LIB)/LuciController.o\
-     $(LIB)/MicroControllerInterface.o $(LIB)/ServoController.o $(LIB)/Space.o $(LIB)/TrajectoryController.o\
+     $(LIB)/MicroControllerInterface.o $(LIB)/ServoController.o $(LIB)/Spatial.o $(LIB)/TrajectoryController.o\
      $(LIB)/TrajectoryPattern.o $(LIB)/TrajectoryPatternController.o $(LIB)/BezierCurve.o $(LIB)/I2CInterface.o\
      $(LIB)/LEDController.o $(LIB)/PCA9685.o
 INCLUDES=
