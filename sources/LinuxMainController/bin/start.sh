@@ -16,7 +16,7 @@ function ensure-being-root {
 videodev=/dev/video0
 echo -n "check webcam "
 if [ -e "$videodev" ] 
-thenb
+then
 	if [ -c "$videodev" ] 
 	then
 		echo "ok."
